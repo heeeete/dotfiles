@@ -147,3 +147,23 @@ Context Tree에서 문서 삭제를 시작할 수 있게 하고, API 삭제 결�
 [api-rust]
 - artifact 삭제 응답 처리 보강
 ```
+
+## Markdown 원본 출력 규칙
+
+사용자가 블로그 글, README, 문서 초안 등 Markdown 원본을 요청하면, 전체 원본을 4개 백틱 코드블록으로 감싸서 출력한다.
+
+Markdown 원본 내부에 fenced code block이 포함될 수 있으므로, 바깥 fence는 내부 fence보다 길게 사용한다.
+
+예:
+
+`````text
+````md
+# 제목
+
+```bash
+echo hello
+```
+````
+`````
+
+사용자가 렌더링된 Markdown을 원한다고 명시한 경우에만 일반 Markdown으로 출력한다.
