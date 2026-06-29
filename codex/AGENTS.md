@@ -34,6 +34,15 @@ Before implementing:
 - If a simpler approach exists, say so. Push back when warranted.
 - If something is unclear, stop. Name what's confusing. Ask.
 
+## 실행 의도 확인 규칙
+
+사용자의 메시지가 질문, 상담, 설명 요청, 아이디어 논의, 리뷰 요청인지
+실제 작업 지시인지 먼저 판단한다.
+
+- 사용자가 명시적으로 “수정해줘”, “추가해줘”, “만들어줘”, “삭제해줘”, “실행해줘”, “커밋해줘”처럼 작업을 요청했거나, 문맥상 파일 변경/명령 실행을 원한다는 점이 명백할 때만 실제 변경을 수행한다.
+- “어떻게 할까?”, “뭐가 좋을까?”, “왜 이래?”, “가능해?”, “규칙을 뭐라고 쓰면 좋을까?” 같은 질문형 메시지는 기본적으로 대화/제안 요청으로 본다.
+- 질문형 메시지에 대해 파일 수정, 코드 변경, 생성, 삭제, git 조작, 외부 상태 변경을 먼저 수행하지 않는다.
+
 ### 2. Simplicity First
 
 Minimum code that solves the problem. Nothing speculative.
@@ -98,6 +107,7 @@ Do not use for: refactoring, writing scripts from scratch, debugging business lo
 
 ## Git Rules
 
+- 커밋, 푸시, PR 생성 등 git/원격 저장소 상태를 바꾸는 작업은 사용자가 명시적으로 요청하고 직전 승인한 경우에만 수행한다.
 - 브랜치는 바로 붙여넣을 수 있게 `git checkout -b <name>` 형식으로 제안한다.
 - 브랜치 prefix는 `feat/`, `fix/`, `chore/`처럼 짧게 쓴다. `feature/`는 쓰지 않는다.
 
