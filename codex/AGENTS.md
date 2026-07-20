@@ -92,19 +92,6 @@ The test: every changed line should trace directly to the user's request.
 
 목표는 모든 리뷰 코멘트를 그대로 반영하는 것이 아니라, 의도된 동작을 보존하면서 실제 문제만 고치는 것이다.
 
-<!-- context7 -->
-Use Context7 MCP to fetch current documentation whenever the user asks about a library, framework, SDK, API, CLI tool, or cloud service -- even well-known ones like React, Next.js, Prisma, Express, Tailwind, Django, or Spring Boot. This includes API syntax, configuration, version migration, library-specific debugging, setup instructions, and CLI tool usage. Use even when you think you know the answer -- your training data may not reflect recent changes. Prefer this over web search for library docs.
-
-Do not use for: refactoring, writing scripts from scratch, debugging business logic, code review, or general programming concepts.
-
-## Steps
-
-1. Always start with `resolve-library-id` using the library name and the user's question, unless the user provides an exact library ID in `/org/project` format
-2. Pick the best match (ID format: `/org/project`) by: exact name match, description relevance, code snippet count, source reputation (High/Medium preferred), and benchmark score (higher is better). If results don't look right, try alternate names or queries (e.g., "next.js" not "nextjs", or rephrase the question). Use version-specific IDs when the user mentions a version
-3. `query-docs` with the selected library ID and the user's full question (not single words)
-4. Answer using the fetched docs
-<!-- context7 -->
-
 ## Git Rules
 
 - 커밋, 푸시, PR 생성 등 git/원격 저장소 상태를 바꾸는 작업은 사용자가 명시적으로 요청하고 직전 승인한 경우에만 수행한다.
@@ -157,6 +144,19 @@ Context Tree에서 문서 삭제를 시작할 수 있게 하고, API 삭제 결�
 [api-rust]
 - artifact 삭제 응답 처리 보강
 ```
+
+### PR 본문
+
+- Codex가 PR을 생성하거나 기존 PR 본문을 수정할 때 적용한다.
+- PR 본문에는 변경 이유, 달라진 동작, 사용자 또는 개발자에게 미치는 영향, 버그 수정인 경우 근본 원인, 실행한 검증을 포함한다.
+- PR 본문 최하단에는 반드시 `## 머지 준비 상태` 섹션을 둔다.
+- `## 머지 준비 상태`에는 다음 항목을 모두 포함한다.
+  - `판정`: `바로 머지 가능`, `추가 검증 권장`, `머지 보류` 중 하나
+  - `신뢰도`: `높음`, `중간`, `낮음` 중 하나
+  - `근거`: 실행한 테스트, 빌드, 정적 검사, 브라우저 검증, 코드 리뷰 등 판정 근거
+  - `미검증 영역`: 확인하지 못한 환경이나 동작. 없으면 `없음`
+  - `남은 위험`: 알려진 회귀 가능성. 없으면 `없음`
+- 확인하지 않은 내용을 추측하지 않는다. 판정 근거가 부족하거나 중요한 미검증 영역이 있으면 `추가 검증 권장` 또는 `머지 보류`로 판정한다.
 
 ## Markdown 원본 출력 규칙
 
