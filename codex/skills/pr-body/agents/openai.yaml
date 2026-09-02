@@ -1,0 +1,4 @@
+interface:
+  display_name: "PR 본문 작성"
+  short_description: "변경 전후와 검증 근거가 선명한 PR 본문 작성"
+  default_prompt: "$pr-body를 사용해 현재 변경사항의 PR 본문을 작성해줘."
