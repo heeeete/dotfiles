@@ -11,6 +11,10 @@ codex/
 ├── AGENTS.md
 ├── install.sh
 └── skills/
+    ├── codex-pr-review/
+    │   ├── SKILL.md
+    │   └── agents/
+    │       └── openai.yaml
     └── pr-body/
         ├── SKILL.md
         └── agents/
@@ -19,6 +23,8 @@ codex/
 
 - `codex/AGENTS.md`: Codex 전역 작업 규칙
 - `codex/skills/`: 직접 관리하는 개인 스킬
+  - `codex-pr-review`: PR에 일상 사용 기준의 Codex 리뷰 요청 댓글 등록
+  - `pr-body`: 변경 전후와 검증 근거 중심의 PR 본문 작성
 - `codex/install.sh`: `dotfiles/codex`의 항목을 Codex 홈에 연결하는 설치 스크립트
 
 ## 새 노트북에 설치하기
