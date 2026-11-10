@@ -11,20 +11,16 @@ codex/
 ├── AGENTS.md
 ├── install.sh
 └── skills/
-    ├── codex-pr-review/
-    │   ├── SKILL.md
-    │   └── agents/
-    │       └── openai.yaml
-    └── pr-body/
+    └── <skill-name>/
         ├── SKILL.md
-        └── agents/
-            └── openai.yaml
+        ├── agents/       # UI 표시 정보가 있는 스킬
+        └── ...           # 스크립트·참고 자료·에셋
 ```
 
 - `codex/AGENTS.md`: Codex 전역 작업 규칙
-- `codex/skills/`: 직접 관리하는 개인 스킬
-  - `codex-pr-review`: PR에 일상 사용 기준의 Codex 리뷰 요청 댓글 등록
-  - `pr-body`: 변경 전후와 검증 근거 중심의 PR 본문 작성
+- `codex/skills/`: Codex 전용 스킬과 공용 에이전트 스킬의 원본
+  - 각 스킬의 `SKILL.md`와 스크립트·참고 자료·에셋을 함께 관리합니다.
+  - `node_modules`와 Python 캐시 등 로컬 실행 산출물은 Git에서 제외합니다.
 - `codex/install.sh`: `dotfiles/codex`의 항목을 Codex 홈에 연결하는 설치 스크립트
 
 ## 새 노트북에 설치하기

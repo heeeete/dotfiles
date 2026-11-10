@@ -1,0 +1,4 @@
+interface:
+  display_name: "Neon 마이그레이션 점검"
+  short_description: "적용 이력과 실제 DB 구조를 비교해 미적용 마이그레이션 확인"
+  default_prompt: "$neon-migration-check dev 브랜치에서 0110 이후 미적용 마이그레이션을 찾아줘."

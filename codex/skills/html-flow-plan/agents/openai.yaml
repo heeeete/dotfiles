@@ -1,0 +1,4 @@
+interface:
+  display_name: "화면 예시 HTML 기획서"
+  short_description: "현재 서비스 흐름을 확인하고 전후 화면과 화살표로 읽는 단독 HTML 기획서 작성"
+  default_prompt: "$html-flow-plan 현재 프로젝트를 확인하고, 요청한 기능의 전후 화면을 클릭 없이 비교하고 화살표로 순서를 읽을 수 있는 단독 HTML 기획서를 다운로드 폴더에 만들어줘."
